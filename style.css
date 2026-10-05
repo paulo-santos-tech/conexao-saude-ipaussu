@@ -1,0 +1,820 @@
+/* ==========================================================================
+   CONEXÃO SAÚDE | IPAUSSU - DESIGN SYSTEM & IDENTIDADE VISUAL
+   Paleta: Turquesa Vibrante (#00C4CC), Teal Clínico (#008794), Ciano Escuro (#053842)
+   ========================================================================== */
+
+:root {
+  /* Cores da Identidade Visual Conexão Saúde */
+  --cor-marca-primaria: #00A8B5;
+  --cor-marca-vibrante: #00C4CC;
+  --cor-marca-clara: #33D6DE;
+  --cor-marca-neon: #60EEF4;
+  --cor-marca-escuro: #06454F;
+  --cor-marca-profundo: #042D34;
+  
+  /* Cores de Apoio e Neutras */
+  --bg-pagina-topo: #E5F8F9;
+  --bg-pagina-meio: #F2FCFC;
+  --bg-pagina-base: #FFFFFF;
+  
+  --cor-texto-principal: #08333B;
+  --cor-texto-secundario: #456870;
+  --cor-texto-suave: #6E8E96;
+  
+  --cor-card-bg: rgba(255, 255, 255, 0.92);
+  --cor-card-borda: rgba(0, 196, 204, 0.18);
+  
+  /* WhatsApp Oficial */
+  --cor-wpp-verde: #25D366;
+  --cor-wpp-verde-hover: #20BA5A;
+  --cor-wpp-gradiente: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  
+  /* Sombras & Efeitos */
+  --sombra-card: 0 20px 45px -10px rgba(0, 140, 150, 0.14), 0 0 1px rgba(0, 196, 204, 0.2);
+  --sombra-botao: 0 12px 28px -5px rgba(18, 140, 126, 0.4);
+  --sombra-glow: 0 0 40px rgba(0, 196, 204, 0.25);
+  
+  /* Tipografia */
+  --fonte-titulo: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --fonte-corpo: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Bordas */
+  --raio-card: 24px;
+  --raio-botao: 18px;
+  --raio-tag: 999px;
+}
+
+/* ==========================================================================
+   RESET & CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--bg-pagina-base);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(0, 196, 204, 0.18) 0px, transparent 55%),
+    radial-gradient(at 100% 15%, rgba(0, 168, 181, 0.14) 0px, transparent 50%),
+    linear-gradient(180deg, var(--bg-pagina-topo) 0%, var(--bg-pagina-meio) 35%, var(--bg-pagina-base) 100%);
+  background-repeat: no-repeat;
+  color: var(--cor-texto-principal);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* Brilhos decorativos de fundo */
+.bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+.bg-glow-1 {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, var(--cor-marca-vibrante), transparent 70%);
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bg-glow-2 {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, #52e5d9, transparent 70%);
+  top: 380px;
+  right: -100px;
+}
+
+/* ==========================================================================
+   CONTAINER PRINCIPAL
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   HERO / CABEÇALHO
+   ========================================================================== */
+
+.hero {
+  text-align: center;
+  padding: 16px 8px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Selo de Canal Oficial */
+.badge-oficial {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 168, 181, 0.12);
+  border: 1px solid rgba(0, 196, 204, 0.28);
+  color: var(--cor-marca-escuro);
+  padding: 6px 14px;
+  border-radius: var(--raio-tag);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 168, 181, 0.08);
+}
+
+.badge-icon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--cor-marca-primaria);
+}
+
+/* Wrapper da Logo com Glow */
+.logo-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+.logo {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0, 168, 181, 0.28);
+  border: 4px solid #ffffff;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo:hover {
+  transform: scale(1.04) rotate(1deg);
+}
+
+.logo-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 135px;
+  height: 135px;
+  background: radial-gradient(circle, var(--cor-marca-vibrante) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  filter: blur(15px);
+  z-index: 1;
+  opacity: 0.6;
+}
+
+/* Tag da Secretaria */
+.tag {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(0, 196, 204, 0.14), rgba(0, 168, 181, 0.08));
+  color: var(--cor-marca-escuro);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: var(--raio-tag);
+  border: 1px solid rgba(0, 196, 204, 0.25);
+  margin-bottom: 12px;
+}
+
+/* Título Principal */
+.titulo-principal {
+  font-family: var(--fonte-titulo);
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--cor-marca-escuro);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.titulo-principal .cidade {
+  display: block;
+  font-size: 26px;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--cor-marca-primaria), var(--cor-marca-vibrante));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.descricao {
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--cor-texto-secundario);
+  max-width: 420px;
+  margin: 0 auto 14px;
+}
+
+/* Slogan Oficial em Destaque */
+.slogan-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 196, 204, 0.12);
+  color: var(--cor-marca-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 7px 18px;
+  border-radius: var(--raio-tag);
+  border: 1px solid rgba(0, 196, 204, 0.28);
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px rgba(0, 168, 181, 0.08);
+}
+
+/* Status em tempo real */
+.status-tempo-real {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--cor-marca-escuro);
+  background: #ffffff;
+  padding: 6px 14px;
+  border-radius: var(--raio-tag);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 196, 204, 0.2);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10B981;
+  position: relative;
+}
+
+.status-dot::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(16, 185, 129, 0.4);
+  animation: pulse-dot 2s infinite ease-out;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* ==========================================================================
+   CARD PRINCIPAL (CALL TO ACTION / WHATSAPP)
+   ========================================================================== */
+
+.card {
+  background: var(--cor-card-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--raio-card);
+  padding: 28px 22px;
+  border: 1px solid var(--cor-card-borda);
+  box-shadow: var(--sombra-card);
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-destaque {
+  border-top: 3px solid var(--cor-marca-vibrante);
+}
+
+.card-header-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--cor-marca-primaria);
+  background: rgba(0, 196, 204, 0.12);
+  padding: 4px 12px;
+  border-radius: var(--raio-tag);
+  margin-bottom: 12px;
+}
+
+.card h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--cor-marca-profundo);
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.card-texto {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--cor-texto-secundario);
+  margin-bottom: 22px;
+}
+
+/* ==========================================================================
+   BOTÃO DE ALTA CONVERSÃO - WHATSAPP
+   ========================================================================== */
+
+.botao {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 74px;
+  border-radius: var(--raio-botao);
+  padding: 14px 20px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.botao-whatsapp {
+  background: var(--cor-wpp-gradiente);
+  color: #ffffff;
+  box-shadow: var(--sombra-botao);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  animation: pulse-button 3.5s infinite ease-in-out;
+}
+
+@keyframes pulse-button {
+  0%, 100% {
+    box-shadow: 0 10px 25px -4px rgba(18, 140, 126, 0.45);
+  }
+  50% {
+    box-shadow: 0 14px 32px 0px rgba(37, 211, 102, 0.55);
+  }
+}
+
+.botao-whatsapp:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 18px 36px -4px rgba(18, 140, 126, 0.55);
+}
+
+.botao-whatsapp:active {
+  transform: translateY(1px);
+}
+
+.icone-btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.icone-whatsapp {
+  width: 28px;
+  height: 28px;
+  fill: #ffffff;
+}
+
+.texto-btn {
+  flex-grow: 1;
+  text-align: left;
+  padding: 0 14px;
+}
+
+.texto-btn strong {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: #ffffff;
+}
+
+.texto-btn small {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.seta-btn {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.85);
+  transition: transform 0.2s ease;
+}
+
+.botao-whatsapp:hover .seta-btn {
+  transform: translateX(4px);
+  color: #ffffff;
+}
+
+/* Selo de Segurança abaixo do Botão */
+.card-seguranca {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+  font-weight: 500;
+}
+
+.icone-seguro {
+  width: 15px;
+  height: 15px;
+  stroke: var(--cor-marca-primaria);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   BENEFÍCIOS (GRID MODERNO COM ÍCONES VETORIAIS)
+   ========================================================================== */
+
+.beneficios {
+  padding: 10px 4px 22px;
+  margin-bottom: 20px;
+}
+
+.beneficios-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.beneficios-subtitulo {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--cor-marca-primaria);
+  background: rgba(0, 196, 204, 0.12);
+  padding: 4px 12px;
+  border-radius: var(--raio-tag);
+  margin-bottom: 8px;
+}
+
+.beneficios h2 {
+  font-family: var(--fonte-titulo);
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--cor-marca-profundo);
+  letter-spacing: -0.3px;
+}
+
+.lista-beneficios {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.beneficio {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--cor-card-bg);
+  backdrop-filter: blur(10px);
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--cor-card-borda);
+  box-shadow: 0 4px 15px rgba(0, 140, 150, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.beneficio:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 168, 181, 0.12);
+  border-color: rgba(0, 196, 204, 0.4);
+}
+
+.beneficio-icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, rgba(0, 196, 204, 0.16), rgba(0, 168, 181, 0.08));
+  border: 1px solid rgba(0, 196, 204, 0.25);
+  border-radius: 12px;
+  flex-shrink: 0;
+  color: var(--cor-marca-primaria);
+}
+
+.beneficio-icone svg {
+  width: 22px;
+  height: 22px;
+}
+
+.beneficio-conteudo h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--cor-marca-escuro);
+  margin-bottom: 3px;
+}
+
+.beneficio-conteudo p {
+  font-size: 13.5px;
+  color: var(--cor-texto-secundario);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   CAIXA DE COMPARTILHAMENTO
+   ========================================================================== */
+
+.compartilhar-box {
+  background: linear-gradient(135deg, #ffffff 0%, rgba(229, 248, 249, 0.8) 100%);
+  border: 1px solid rgba(0, 196, 204, 0.25);
+  border-radius: 18px;
+  padding: 18px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 6px 20px rgba(0, 140, 150, 0.06);
+}
+
+.compartilhar-texto strong {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 15px;
+  color: var(--cor-marca-escuro);
+  margin-bottom: 2px;
+}
+
+.compartilhar-texto p {
+  font-size: 13px;
+  color: var(--cor-texto-secundario);
+}
+
+.botao-secundario {
+  background: #ffffff;
+  color: var(--cor-marca-escuro);
+  border: 1.5px solid var(--cor-marca-vibrante);
+  padding: 11px 18px;
+  border-radius: 12px;
+  font-family: var(--fonte-titulo);
+  font-size: 14px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.botao-secundario svg {
+  width: 16px;
+  height: 16px;
+}
+
+.botao-secundario:hover {
+  background: var(--cor-marca-vibrante);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 196, 204, 0.3);
+}
+
+/* ==========================================================================
+   REDES SOCIAIS
+   ========================================================================== */
+
+.redes-sociais {
+  text-align: center;
+  padding: 10px 0 24px;
+}
+
+.titulo-redes {
+  font-family: var(--fonte-titulo);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cor-marca-escuro);
+  margin-bottom: 14px;
+}
+
+.botoes-redes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.botao-rede {
+  text-decoration: none;
+  padding: 13px 14px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.icone-rede {
+  width: 18px;
+  height: 18px;
+}
+
+.instagram {
+  border: 1.5px solid rgba(225, 48, 108, 0.35);
+  color: #c13584;
+}
+
+.instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #ffffff;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(225, 48, 108, 0.28);
+}
+
+.facebook {
+  border: 1.5px solid rgba(24, 119, 242, 0.35);
+  color: #1877f2;
+}
+
+.facebook:hover {
+  background: #1877f2;
+  color: #ffffff;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(24, 119, 242, 0.28);
+}
+
+.aviso-oficial {
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+
+footer {
+  text-align: center;
+  padding: 20px 10px 10px;
+  color: var(--cor-texto-suave);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.footer-divisor {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cor-marca-vibrante), transparent);
+  margin: 0 auto 20px;
+}
+
+.footer-orgao strong {
+  color: var(--cor-marca-escuro);
+  font-size: 14.5px;
+}
+
+.footer-cidade {
+  color: var(--cor-texto-secundario);
+  font-weight: 500;
+}
+
+.slogan-rodape {
+  margin-bottom: 8px;
+  font-family: var(--fonte-titulo);
+  font-size: 15px;
+  color: var(--cor-marca-primaria);
+  font-weight: 700;
+}
+
+.footer-ano {
+  margin-top: 12px;
+  font-size: 11.5px;
+  color: var(--cor-texto-suave);
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   TOAST FEEDBACK
+   ========================================================================== */
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--cor-marca-profundo);
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: var(--raio-tag);
+  font-size: 13.5px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--cor-marca-vibrante);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 9999;
+  max-width: 90%;
+  text-align: center;
+}
+
+.toast.ativo {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE & DESKTOP)
+   ========================================================================== */
+
+@media (min-width: 600px) {
+  .container {
+    padding-top: 40px;
+    padding-bottom: 50px;
+  }
+
+  .hero {
+    padding-top: 20px;
+  }
+
+  .titulo-principal {
+    font-size: 42px;
+  }
+
+  .titulo-principal .cidade {
+    font-size: 30px;
+  }
+
+  .card {
+    padding: 34px 28px;
+  }
+
+  .card h2 {
+    font-size: 24px;
+  }
+
+  .compartilhar-box {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .botao-secundario {
+    width: auto;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .titulo-principal {
+    font-size: 30px;
+  }
+
+  .titulo-principal .cidade {
+    font-size: 22px;
+  }
+
+  .card {
+    padding: 22px 16px;
+  }
+
+  .botao {
+    padding: 12px 14px;
+  }
+
+  .texto-btn strong {
+    font-size: 15px;
+  }
+}
