@@ -2,7 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
     <title>Conexão Saúde | Ipaussu - Canal Oficial</title>
     <meta
@@ -37,9 +37,11 @@
   </head>
 
   <body>
-    <!-- Elementos visuais de fundo decorativos com as cores da identidade -->
-    <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
-    <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+    <!-- Elementos visuais de fundo decorativos com as cores da identidade protegidos contra vazamento lateral -->
+    <div class="bg-glow-container" aria-hidden="true">
+      <div class="bg-glow bg-glow-1"></div>
+      <div class="bg-glow bg-glow-2"></div>
+    </div>
 
     <main class="container">
       <!-- CABEÇALHO / HERO -->
